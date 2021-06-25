@@ -8,7 +8,9 @@
         <meta name="author" content="" />
         <title>TPS | Admin</title>
         <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+      
     </head>
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -84,33 +86,22 @@
                             <li class="breadcrumb-item active"><a href="dashboard">Dashboard</a></li>
                             <!--li class="breadcrumb-item active">Static Navigation</li-->
                         </ol>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <!--p class="mb-0">
-                                    This page is an example of using static navigation. By removing the
-                                    <code>.sb-nav-fixed</code>
-                                    class from the
-                                    <code>body</code>
-                                    , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example.
-                                </p-->
-                                <main class="py-4">
-                                    @yield('content')
-                                </main>
-                            </div>
-                        </div>
+                     
+                        
+                    <main class="py-4">
+                        @yield('content')
+                    </main>
                         <div style="height: 100vh"></div>
                         <!---div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div-->
+                    
+                       
                     </div>
+
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Tab Providing System</div>
-                            <!--div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div--->
                         </div>
                     </div>
                 </footer>
@@ -118,5 +109,7 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('js/scripts.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{{asset('js/datatables-simple-demo.js')}}"></script>
     </body>
 </html>
