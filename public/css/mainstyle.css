@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 27, 2019, 9:51:09 AM
+    Author     : Nishantha
+*/
+
+.weightblue{
+   color:#0F2453; 
+   font-weight: bold;
+}
+.weightyellow{
+    color: #FFCE14;
+    font-weight: bold;
+}
+.bnav{
+    background-color:#0F2453;
+}
+.reservation{
+    color:white;
+    font-weight: bold;
+}
+.offer{
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+.reserve{
+    background-color: #FFCE14;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+#contact .card:hover i,#contact .card:hover h4{
+	color: #87d37c;
+
+}
+
+.footer{
+    background-color: #0F2453;
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e6f7ff;
+}
