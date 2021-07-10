@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\TabController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,15 @@ Route::get('/admin/{userId}/updateTabStatus',[DashboardController::class,'update
 Route::get('/admin/{userId}/updateTabStatusBack',[DashboardController::class,'updateTabStatusBack'])->middleware('admin')->name('user.updateTabStatusBack');
 Route::get('/admin/{userId}/updateTabStatusToZero',[DashboardController::class,'updateTabStatusToZero'])->middleware('admin')->name('user.updateTabStatusToZero');
 
+<<<<<<< Updated upstream
 use App\Http\Controllers\TabRequestInfoController;
 Route::get('/user/tabrequestinfo',[TabRequestInfoController::class, 'create'])->name('user.create');
+=======
+//---TabRequest routes---//
+Route::get('/tab/addrequest', [TabController::class, 'create'])->name('tab.addrequest');
+Route::post('/tab/addrequest', [TabController::class, 'store'])->name('tab.addrequest');
+Route::get('/tab/viewrequest', [TabController::class, 'view'])->name('tab.viewrequest');
+Route::get('/tab/deleterequest/{id?}', [TabController::class, 'destroy'])->name('tab.deleterequest');
+Route::get('/tab/editrequest/{id?}', [TabController::class, 'edit'])->name('tab.editrequest');
+Route::patch('/tab/editrequest/{id?}', [TabController::class, 'update'])->name('tab.editrequest');
+>>>>>>> Stashed changes
