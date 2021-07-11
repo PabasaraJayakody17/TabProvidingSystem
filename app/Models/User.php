@@ -51,5 +51,9 @@ class User extends Authenticatable
     public function getAdmin(){
         return $this->role;
     }
+
+    public function tabrequest(){
+        return $this->hasOne(TabRequest::class, 'userId', 'id');
+    }    
  
 }
