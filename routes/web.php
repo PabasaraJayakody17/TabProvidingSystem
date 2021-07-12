@@ -33,7 +33,6 @@ Route::get('/admin/{userId}/updateTabStatus',[DashboardController::class,'update
 Route::get('/admin/{userId}/updateTabStatusBack',[DashboardController::class,'updateTabStatusBack'])->middleware('admin')->name('user.updateTabStatusBack');
 Route::get('/admin/{userId}/updateTabStatusToZero',[DashboardController::class,'updateTabStatusToZero'])->middleware('admin')->name('user.updateTabStatusToZero');
 
-Route::get('/user/tabrequestinfo',[TabRequestInfoController::class, 'create'])->name('user.create');
 //---TabRequest routes---//
 Route::get('/tab/addrequest', [TabController::class, 'create'])->name('tab.addrequest');
 Route::post('/tab/addrequest', [TabController::class, 'store'])->name('tab.addrequest');
