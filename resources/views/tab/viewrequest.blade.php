@@ -29,8 +29,10 @@
                         <th>Grade</th>
                         <th>Tel Number</th> 
                         <th>Postal Address</th>  
-                        <th>Reason for the request</th>    
-                        <th>Actions</th>                       
+                        <th>Reason for the request</th>  
+                        <th>Request Status </th>                  
+                        <th>Actions</th>    
+                                      
                     </tr>
                 </thead>
                 <tbody>
@@ -42,11 +44,20 @@
                         <td>{{ $d->telNo }}</td>
                         <td>{{ $d->postalAddress }}</td>
                         <td>{{ $d->reason }}</td>
+                        @if($d->user->tab_status == 0)
+                          <td>
+                        <a href="{{route('tab.updateTabStatus',$d->userId)}}" class="btn btn-success btn-md">Confirm Request</a>
+                          </td>                  
+                        @elseif($d->user->tab_status == 1 )
+                          <td>Requested</td>
+                        @else
+                          <td>Accepted</td>                  
+                        @endif                  
                         <td>
                             <a href="{{route('tab.editrequest',$d->id)}}" class="btn btn-primary btn-md">Edit</a>
-                            <a href="{{route('tab.destroy',$d->id)}}" class="btn btn-danger btn-md">Delete</a>
-                            <a href="{{route('tab.updateTabStatus',$d->userId)}}" class="btn btn-success btn-md">Confirm Request</a>
+                            <a href="{{route('tab.destroy',$d->id)}}" class="btn btn-danger btn-md">Delete</a>                          
                         </td>
+                      
                     </tr>
                 @endforeach 
                 </tbody>
