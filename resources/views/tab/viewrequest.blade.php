@@ -3,6 +3,12 @@
 
 @section('content')
 <div class="container">
+    <a  href="{{route('tab.addrequest')}}">
+        tab Request
+    </a>
+    <a class="ml-3" href="{{route('tab.viewrequest')}}">
+        View Request
+    </a>
     <h5>We can give you a Tab...!!</h5>
     <h5>Check your information again and confirm your request.</h5>
 
@@ -22,9 +28,9 @@
                         <th>Student/Teacher</th>
                         <th>Grade</th>
                         <th>Tel Number</th> 
-                        <th>Email Address</th>
                         <th>Postal Address</th>  
-                        <th>Reason for the request</th>                       
+                        <th>Reason for the request</th>    
+                        <th>Actions</th>                       
                     </tr>
                 </thead>
                 <tbody>
@@ -34,20 +40,22 @@
                         <td>{{ $d->student_or_teacher }}</td>
                         <td>{{ $d->grade }}</td>
                         <td>{{ $d->telNo }}</td>
-                        <td>{{ $d->emailAddress }}</td>
                         <td>{{ $d->postalAddress }}</td>
                         <td>{{ $d->reason }}</td>
+                        <td>
+                            <a href="{{route('tab.editrequest',$d->id)}}" class="btn btn-primary btn-md">Edit</a>
+                            <a href="{{route('tab.destroy',$d->id)}}" class="btn btn-danger btn-md">Delete</a>
+                            <a href="{{route('tab.updateTabStatus',$d->userId)}}" class="btn btn-success btn-md">Confirm Request</a>
+                        </td>
                     </tr>
-                @endforeach
+                @endforeach 
                 </tbody>
             </table>
-            <div class="row"> 
-                <div><a href="{{route('tab/editrequest',$data->id)}}" class="btn btn-primary btn-md">Edit</a></div>
-                <div><a href="{{route('tab/deleterequest',$data->id)}}" class="btn btn-danger btn-md">Delete</a></div>
-                <div><a href="" class="btn btn-success btn-md">Confirm Request</a></div>
+           
+                
                  
-                 
-            </div>
+           
+         
         </div>
     </div>
 </div>

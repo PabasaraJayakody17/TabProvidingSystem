@@ -19,11 +19,12 @@ class CreateTabRequestsTable extends Migration
             $table->string('student_or_teacher');
             $table->integer('grade');
             $table->integer('telNo');
-            $table->string('emailAddress');
+          //  $table->string('emailAddress');
             $table->string('postalAddress');
             $table->string('reason');
             $table->timestamps();
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
+          
         });
     }
 

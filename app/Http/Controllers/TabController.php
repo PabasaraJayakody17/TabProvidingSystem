@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\TabRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TabController extends Controller
 {
@@ -38,8 +39,8 @@ class TabController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new TabRequest([
-            'userId' => $request->get('userId'),
+       /* $data = new TabRequest([
+           // 'userId' => $request->get('userId'),
             'student_or_teacher' => $request->get('student_or_teacher'),
             'grade' => $request->get('grade'),
             'telNo' => $request->get('telNo'),
@@ -47,40 +48,62 @@ class TabController extends Controller
             'postalAddress' => $request->get('postalAddress'),
             'reason' => $request->get('reason')
         ]);
-        $data->save();
-        return redirect()->route('tab.addrequest')->with('success','Data have been successfully inserted');
+        $data->save();*/
+        TabRequest::create([
+             'userId' => auth()->user()->id,
+             'student_or_teacher' => $request->get('student_or_teacher'),
+             'grade' => $request->get('grade'),
+             'telNo' => $request->get('telNo'),
+             'postalAddress' => $request->get('postalAddress'),
+             'reason' => $request->get('reason')
+        ]);
+        return redirect()->route('tab.viewrequest')->with('success','Data have been successfully inserted');
     }
 
     public function view()
     {
-        $data = TabRequest::all();
+        $data = TabRequest::where('userId',Auth::user()->id)->get();
+       // $data = TabRequest::all();
         return view('tab.viewrequest', compact('data'));
     }
 
     public function edit($id)
     {
-        $data = TabRequest::find($id);
+       
+        $data = TabRequest::findOrFail($id);
         return view('tab.editrequest', compact('data'));
     }
 
-    public function update(Request $request, $id)
+    public function update($id,Request $request)
     {
-        $data = TabRequest::find($id);
-        $data->name = $request->get('name');
+       /* $data = TabRequest::find($id);
+       // $data->name = $request->get('name');
         $data->student_or_teacher = $request->get('student_or_teacher');
         $data->grade = $request->get('grade');
         $data->telNo = $request->get('telNo');
         $data->emailAddress = $request->get('emailAddress');
         $data->postalAddress = $request->get('postalAddress');
         $data->reason = $request->get('reason');
-        $data->save();
-        return redirect()->route('tab.viewrequest')->with('success','Data have been successfully inserted');
+        $data->save();*/
+       // dd($request->all());
+        TabRequest::findOrFail($id)->update($request->all());
+   
+       return redirect()->route('tab.viewrequest')->with('success','Data have been successfully inserted');
     }
 
     public function destroy($id)
     {
-        $data = TabRequest::find($id);
-        $data->delete();
-        return redirect()->route('tab.deleterequest')->with('success','Data have been successfully deleted');
+        TabRequest::findOrFail($id)->delete();
+       // $data = TabRequest::find($id);
+       // $data->delete();
+        return redirect()->route('tab.viewrequest')->with('success','Data have been successfully deleted');
+    }
+    public function updateTabStatus($userId){
+    
+        User::whereId($userId)->update([
+           'tab_status' => 1
+       ]);
+           return redirect()->route('tab.viewrequest')->with('success','Your tab request successfully added');
+          
     }
 }

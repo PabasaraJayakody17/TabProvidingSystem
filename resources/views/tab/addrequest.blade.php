@@ -2,7 +2,13 @@
 
 @section('content')
 <div class="container">
-    <h2 class="text-center">Enter your information... Request for a tab...</h2>
+    <a  href="{{route('tab.addrequest')}}">
+        tab Request
+    </a>
+    <a class="ml-3" href="{{route('tab.viewrequest')}}">
+        View Request
+    </a>
+    <h2 class="text-center">Enter your information... Request for a tab fsf...</h2>
     <h2 class="text-center">We will provide you a tab.</h2>
 
     <div class="row justify-content-center">
@@ -19,7 +25,7 @@
                     <form method="POST" action="{{route('tab.addrequest')}}" >
                         @csrf
 
-                        <div class="form-group row">
+                        <!--div class="form-group row">
                             <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Name')}}</label>
                             <div class="col-md-8">
                                 <select class="form-control" name="userID">
@@ -27,7 +33,7 @@
                                     <option value="{{$u->id}}">{{$u->name}}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div-->
                             <!--label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Name')}}</label>
                             <div class="col-md-8">
                                 <input type="text" readonly id="name" class="form-control" name="userId" value="">
@@ -76,15 +82,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!--div class="form-group row">
                             <label for="emailAddress" class="col-md-3 col-form-label text-md-right">{{ __('Email Address')}}</label>
                             <div class="col-md-8">
-                                <input type="text" id="emailAddress" class="form-control @error('emailAddress') is-invalid @enderror" name="emailAddress" value="{{ old('emailAddress') }}" required autocomplete="emailAddress" autofocus>
+                                <input type="text" id="emailAddress" class="form-control @error('emailAddress') is-invalid @enderror" name="emailAddress" value="{{auth()->user()->email}}" required autocomplete="emailAddress" autofocus>
                                 @error('emailAddress')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
-                        </div>
+                        </div-->
 
                         <div class="form-group row">
                             <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-right">{{ __('Postal Address')}}</label>

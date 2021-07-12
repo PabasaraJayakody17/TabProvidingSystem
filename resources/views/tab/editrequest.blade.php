@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    <a  href="{{route('tab.addrequest')}}">
+        tab Request
+    </a>
+    <a class="ml-3" href="{{route('tab.viewrequest')}}">
+        View Request
+    </a>
     <h2 class="text-center">Enter your information... Request for a tab...</h2>
     <h2 class="text-center">We will provide you a tab.</h2>
 
@@ -15,11 +21,11 @@
                     @if(Session::get('success'))
                         <div class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
-
-                    <form action="{{route('tab.editrequest',$data->id)}}" >
+                
+                    <form method="POST" action="{{route('tab.update',$data->id)}}">
                         @csrf
-                        @method('PATCH')
-                        <div class="form-group row">
+                        
+                        <!--div class="form-group row">
                             <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Name')}}</label>
                             <div class="col-md-8">
                                 <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $data->name }}" required autocomplete="name" autofocus>
@@ -27,18 +33,18 @@
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
-                        </div>
+                        </div-->
 
                         <fieldset class="form-group">
                             <div class="row">
                                 <legend class="col-form-label col-md-3 text-md-right">Student/Teacher</legend>
                                 <div class="col-md-8">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input @error('student_or_teacher') is-invalid @enderror" type="radio" name="student_or_teacher" id="student" value="{{$data->student}}">
+                                        <input class="form-check-input @error('student_or_teacher') is-invalid @enderror" type="radio" name="student_or_teacher" id="student" value="student">
                                         <label class="form-check-label" for="student">Student</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input @error('student_or_teacher') is-invalid @enderror" type="radio" name="student_or_teacher" id="teacher" value="{{$data->teacher}}">
+                                        <input class="form-check-input @error('student_or_teacher') is-invalid @enderror" type="radio" name="student_or_teacher" id="teacher" value="teacher">
                                         <label class="form-check-label" for="teacher">Teacher</label>
                                         @error('student_or_teacher')
                                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -68,7 +74,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!--div class="form-group row">
                             <label for="emailAddress" class="col-md-3 col-form-label text-md-right">{{ __('Email Address')}}</label>
                             <div class="col-md-8">
                                 <input type="text" id="emailAddress" class="form-control @error('emailAddress') is-invalid @enderror" name="emailAddress" value="{{ $data->emailAddress }}" required autocomplete="emailAddress" autofocus>
@@ -76,7 +82,7 @@
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
-                        </div>
+                        </div-->
 
                         <div class="form-group row">
                             <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-right">{{ __('Postal Address')}}</label>

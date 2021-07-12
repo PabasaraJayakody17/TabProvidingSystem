@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    <a  href="{{route('tab.addrequest')}}">
+        tab Request
+    </a>
+    <a class="ml-3" href="{{route('tab.viewrequest')}}">
+        View Request
+    </a>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
