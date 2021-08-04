@@ -49,6 +49,14 @@ class TabController extends Controller
             'reason' => $request->get('reason')
         ]);
         $data->save();*/
+        $request->validate([
+            'student_or_teacher' => 'required',
+            'grade' => 'required|min:1',
+            'telNo' => 'required|regex:/(01)[0-9]{9}/',
+            'postalAddress' => 'required|min:3',
+            'reason' =>'required|min:3',
+        ]);
+
         TabRequest::create([
              'userId' => auth()->user()->id,
              'student_or_teacher' => $request->get('student_or_teacher'),
@@ -86,6 +94,13 @@ class TabController extends Controller
         $data->reason = $request->get('reason');
         $data->save();*/
        // dd($request->all());
+       $request->validate([
+        'student_or_teacher' => 'required',
+        'grade' => 'required|min:1',
+        'telNo' => 'required|regex:/(01)[0-9]{9}/',
+        'postalAddress' => 'required|min:3',
+        'reason' =>'required|min:3',
+    ]);
         TabRequest::findOrFail($id)->update($request->all());
    
        return redirect()->route('tab.viewrequest')->with('success','Data have been successfully inserted');

@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\TabController;
 use App\Http\Controllers\TabRequestInfoController;
+use App\Http\Controllers\profileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +42,7 @@ Route::get('/tab/destroy/{id}', [TabController::class, 'destroy'])->name('tab.de
 Route::get('/tab/editrequest/{id}', [TabController::class, 'edit'])->name('tab.editrequest');
 Route::post('/tab/update/{id}', [TabController::class, 'update'])->name('tab.update');
 Route::get('/tab/updateTabStatus/{userId}', [TabController::class, 'updateTabStatus'])->name('tab.updateTabStatus');
+
+//---user profile settings---//
+Route::GET('/user/profileView', [profileController::class, 'view'])->name('user.profileView');
+Route::post('/user/update/{id}', [profileController::class, 'update'])->name('user.update');
