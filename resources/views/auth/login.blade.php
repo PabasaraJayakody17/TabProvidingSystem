@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if(Session::get('success'))
+    <div class="alert alert-success">{{ Session::get('success') }}</div>
+    @elseif(Session::get('error'))
+    <div class="alert alert-danger">{{ Session::get('error') }}</div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -61,7 +61,7 @@ class LoginController extends Controller
 
         $this->validate($request,[
             'email'=> 'required | email |max:255',
-            'password' => 'required',
+            'password' => 'required|min:6|max:15',
         ]);
         if(auth()->attempt(array('email'=> $input['email'],'password' => $input['password']))){
             
@@ -73,7 +73,7 @@ class LoginController extends Controller
             }
         }else{
             return redirect()->route('login')
-                    ->with('error','Email-Address And Password Are Worng');
+                    ->with('error','Your Email-Address or Password Worng');
         }
     }
 }
