@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
-    <a  href="{{route('tab.addrequest')}}">
+    <!--a  href="{{route('tab.addrequest')}}">
         tab Request
     </a>
     <a class="ml-3" href="{{route('tab.viewrequest')}}">
         View Request
-    </a>
-   
+    </a-->
+   <br>
     <h2 class="text-center">Change Password </h2>
     <br>
     
@@ -29,7 +29,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-right">{{ __('Old Password')}}</label>
+                            <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-left ml-2">{{ __('Old Password')}}</label>
                             <div class="col-md-8">
                                 <input type="password" id="oldPassword" class="form-control @error('oldPassword') is-invalid @enderror" name="oldPassword"  required  autofocus>
                                 @error('oldPassword')
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-right">{{ __('New Password')}}</label>
+                            <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-left ml-2">{{ __('New Password')}}</label>
                             <div class="col-md-8">
                                 <input type="password" id="newPassword" class="form-control @error('newPassword') is-invalid @enderror" name="newPassword"  required autofocus>
                                 @error('newPassword')
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-right">{{ __('Confirm Password')}}</label>
+                            <label for="pospostalAddresstal" class="col-md-3 col-form-label text-md-left ml-2">{{ __('Confirm Password')}}</label>
                             <div class="col-md-8">
                                 <input type="password" id="confirmPassword" class="form-control @error('confirmPassword') is-invalid @enderror" name="confirmPassword"  required autofocus>
                                 @error('confirmPassword')
@@ -56,9 +56,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row ml-5">
                             <div class="col-md-6 offset-md-3">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-block">
                                     {{ __('Change') }}
                                 </button>
                             </div>

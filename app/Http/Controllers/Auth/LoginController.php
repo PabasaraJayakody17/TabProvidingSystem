@@ -69,7 +69,7 @@ class LoginController extends Controller
             // return request()->route('admin.dashboard');
             return redirect('admin/dashboard');
             }else{
-                return redirect('home');
+                return redirect('/tab/addrequest');
             }
         }else{
             return redirect()->route('login')

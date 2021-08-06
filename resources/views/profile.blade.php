@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
-    <a  href="{{route('tab.addrequest')}}">
+    <!--a  href="{{route('tab.addrequest')}}">
         tab Request
     </a>
     <a class="ml-3" href="{{route('tab.viewrequest')}}">
         View Request
-    </a>
-   
+    </a-->
+   <br>
     <h2 class="text-center">Profile Settings</h2>
     <br>
     
@@ -45,13 +45,9 @@
                             </div>
                         </div>
 
-                       
-
-                       
-
-                        <div class="form-group row mb-0">
+                        <div class="form-group row ml-5">
                             <div class="col-md-6 offset-md-3">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-block">
                                     {{ __('Change') }}
                                 </button>
                             </div>
