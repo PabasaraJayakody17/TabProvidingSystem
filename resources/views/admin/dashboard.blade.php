@@ -10,7 +10,11 @@
             </div>
         @endif
     </div>
-
+    <h1 class="mt-4">Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"><a href="dashboard">Dashboard</a></li>
+        <!--li class="breadcrumb-item active">Static Navigation</li-->
+    </ol>
 
 <div class="row">
     <div class="col-xl-4 col-md-6">
@@ -58,30 +62,42 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <!--th>school</th-->
+                    <th>Student/Teacher</th>
+                    <th>Grade</th>
+                    <th>Tel.No</th>
+                    <th>Address</th>
+                    <th>Reason</th>
                     <th>Request Status</th>
-                    <th>Change Status</th> 
+                    <th>Change Status</th>
                     <th>Remove User</th>                         
                 </tr>
             </thead>
-            <tfoot>
+            <!--tfoot>
                 <tr>
                     <th>Name</th>
-                    <!--th>school</th-->
+                    <th>Student/Teacher</th>
+                    <th>Grade</th>
+                    <th>Tel.No</th>
+                    <th>Address</th>
+                    <th>Reason</th>
                     <th>Request Status</th>
                     <th>Change Status</th>
                     <th>Remove User</th>    
                 </tr>
-            </tfoot>
+            </tfoot-->
             <tbody>
-                @foreach ($users as $user)
-                    @if($user->role == 'user')
+                @foreach ($users as $u)
+                    @if($u->user->role == 'user')
                     <tr>                  
-                       <td>{{$user->name}}</td>                                            
-                       <!--td>Baddulla central</td-->                
-                        @if($user->tab_status == 0)
+                       <td>{{$u->user->name}}</td>                                            
+                       <td>{{$u->student_or_teacher}}</td> 
+                       <td>{{ $u->grade }}</td>
+                       <td>{{ $u->telNo }}</td>
+                       <td>{{ $u->postalAddress }}</td>
+                       <td>{{ $u->reason }}</td>     
+                        @if($u->user->tab_status == 0)
                           <td>Not Requsted</td>
-                        @elseif($user->tab_status == 1 )
+                        @elseif($u->user->tab_status == 1 )
                           <td>Requested</td>
                         @else
                            <td>Accepted</td>
@@ -89,11 +105,11 @@
                         @endif  
                    
                         <td>
-                            <a href="{{route('user.updateTabStatus',$user->id)}}" class="btn btn-primary btn-sm">Accepted</a>
-                            <a href="{{route('user.updateTabStatusBack',$user->id)}}" class="btn btn-success btn-sm">Requested</a>
-                            <a href="{{route('user.updateTabStatusToZero',$user->id)}}" class="btn btn-warning btn-sm">Not Requested</a>
+                            <a href="{{route('user.updateTabStatus',$u->user->id)}}" class="btn btn-primary btn-sm">Accepted</a>
+                            <a href="{{route('user.updateTabStatusBack',$u->user->id)}}" class="btn btn-success btn-sm">Requested</a>
+                            <a href="{{route('user.updateTabStatusToZero',$u->user->id)}}" class="btn btn-warning btn-sm">Not Requested</a>
                         </td>   
-                        <td><a href="{{route('user.delete',$user->id)}}" class="btn btn-danger btn-sm">Remove</a></td>                              
+                        <td><a href="{{route('user.delete',$u->user->id)}}" class="btn btn-danger btn-sm">Remove</a></td>                              
                     </tr>
                     @endif
                 @endforeach

@@ -5,7 +5,9 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
-
+use App\Http\Controllers\TabController;
+use App\Http\Controllers\TabRequestInfoController;
+use App\Http\Controllers\profileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,7 @@ use App\Http\Controllers\WelcomeController;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
- Route::get('/',[WelcomeController::class,'index'])->name('welcome');
+Route::get('/',[WelcomeController::class,'index'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -33,3 +35,19 @@ Route::get('/admin/{userId}/updateTabStatusBack',[DashboardController::class,'up
 Route::get('/admin/{userId}/updateTabStatusToZero',[DashboardController::class,'updateTabStatusToZero'])->middleware('admin')->name('user.updateTabStatusToZero');
 
 //school_info page routes
+
+//---TabRequest routes---//
+Route::get('/tab/addrequest', [TabController::class, 'create'])->name('tab.addrequest');
+Route::post('/tab/addrequest', [TabController::class, 'store'])->name('tab.addrequest');
+Route::get('/tab/viewrequest', [TabController::class, 'view'])->name('tab.viewrequest');
+Route::get('/tab/destroy/{id}', [TabController::class, 'destroy'])->name('tab.destroy');
+Route::get('/tab/editrequest/{id}', [TabController::class, 'edit'])->name('tab.editrequest');
+Route::post('/tab/update/{id}', [TabController::class, 'update'])->name('tab.update');
+Route::get('/tab/updateTabStatus/{userId}', [TabController::class, 'updateTabStatus'])->name('tab.updateTabStatus');
+
+//---user profile settings---//
+Route::GET('/user/profileView', [profileController::class, 'view'])->name('user.profileView');
+Route::post('/user/update/{id}', [profileController::class, 'update'])->name('user.update');
+Route::GET('/user/changePassword', [profileController::class, 'changePassword'])->name('user.changePassword');
+Route::POST('/user/updatePassword', [profileController::class, 'updatePassword'])->name('user.updatePassword');
+
