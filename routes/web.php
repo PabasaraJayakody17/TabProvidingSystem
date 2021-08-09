@@ -8,6 +8,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\TabController;
 use App\Http\Controllers\TabRequestInfoController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\SchoolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,8 @@ Route::get('/admin/{userId}/updateTabStatusBack',[DashboardController::class,'up
 Route::get('/admin/{userId}/updateTabStatusToZero',[DashboardController::class,'updateTabStatusToZero'])->middleware('admin')->name('user.updateTabStatusToZero');
 
 //school_info page routes
+Route::get('/tab/selectzone', [SchoolController::class, 'selectZone'])->name('tab.selectzone');
+Route::get('/tab/selectschool', [SchoolController::class, 'selectSchool'])->name('tab.selectschool');
 
 //---TabRequest routes---//
 Route::get('/tab/addrequest', [TabController::class, 'create'])->name('tab.addrequest');

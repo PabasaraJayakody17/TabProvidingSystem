@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSchoolZone extends Migration
+class CreateSchoolZoneTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateSchoolZone extends Migration
      */
     public function up()
     {
-        Schema::create('zone', function (Blueprint $table) {
+        Schema::create('school', function (Blueprint $table) {
             $table->id();
+            $table->string('district');
+            $table->string('zone');
+            $table->string('school');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateSchoolZone extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zone');
+        Schema::dropIfExists('school');
     }
 }
