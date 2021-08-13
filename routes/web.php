@@ -7,6 +7,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\TabController;
 use App\Http\Controllers\TabRequestInfoController;
+use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\TablistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +43,15 @@ Route::get('/tab/destroy/{id}', [TabController::class, 'destroy'])->name('tab.de
 Route::get('/tab/editrequest/{id}', [TabController::class, 'edit'])->name('tab.editrequest');
 Route::post('/tab/update/{id}', [TabController::class, 'update'])->name('tab.update');
 Route::get('/tab/updateTabStatus/{userId}', [TabController::class, 'updateTabStatus'])->name('tab.updateTabStatus');
+
+//School routes
+//Route::get('/admin/schoolinfo',function(){
+   // return view('/admin/schoolinfo');
+//});
+Route::resource('school',SchoolController::class);
+//Route::get('/admin/createschool', [SchoolController::class, 'create'])->name('admin.createschool');
+//Route::get('/admin/schoolinfo', [SchoolController::class, 'index'])->name('admin.schoolinfo');
+//Route::post('/admin/createschool', [SchoolController::class, 'store'])->name('admin.createschool');
+
+//tablist route
+Route::resource('tablist',TablistController::class);
