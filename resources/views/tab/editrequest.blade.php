@@ -1,15 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
-    <a  href="{{route('tab.addrequest')}}">
+    <!--a  href="{{route('tab.addrequest')}}">
         tab Request
     </a>
     <a class="ml-3" href="{{route('tab.viewrequest')}}">
         View Request
-    </a>
-    <h2 class="text-center">Enter your information... Request for a tab...</h2>
-    <h2 class="text-center">We will provide you a tab.</h2>
+    </a-->
+    <br>
+    <h2 class="text-center">We will provide you a tab</h2>
+    <h5 class="text-center">Enter your information... Request for a tab...</h5>
+        @if(Session::get('success'))
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
+        @endif
 
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,9 +22,7 @@
 
                 <div class="card-body">
 
-                    @if(Session::get('success'))
-                        <div class="alert alert-success">{{ Session::get('success') }}</div>
-                    @endif
+                   
                 
                     <form method="POST" action="{{route('tab.update',$data->id)}}">
                         @csrf

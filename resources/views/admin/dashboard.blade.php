@@ -10,7 +10,11 @@
             </div>
         @endif
     </div>
-
+    <h1 class="mt-4">Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"><a href="dashboard">Dashboard</a></li>
+        <!--li class="breadcrumb-item active">Static Navigation</li-->
+    </ol>
 
 <div class="row">
     <div class="col-xl-4 col-md-6">

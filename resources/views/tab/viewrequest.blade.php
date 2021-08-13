@@ -1,26 +1,27 @@
 <!--this is page.-->
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
-    <a  href="{{route('tab.addrequest')}}">
+    <!--a  href="{{route('tab.addrequest')}}">
         tab Request
     </a>
     <a class="ml-3" href="{{route('tab.viewrequest')}}">
         View Request
-    </a>
-    <h5>We can give you a Tab...!!</h5>
-    <h5>Check your information again and confirm your request.</h5>
-
-    <div class="card mb-4">
+    </a-->
+    <br>
+    <h2 class="text-center">We can give you a Tab...!!</h2>
+    <h5 class="text-center">Check your information again and confirm your request.</h5>
+        @if(Session::get('success'))
+            <div class="alert alert-success mb-4 ml-5">{{ Session::get('success') }}</div>
+        @endif
+    <div class="card mb-4 ml-5">
         <div class="card-header bg-primary text-white">
             <i class="fas fa-table me-1"></i>
             Check Your Information
         </div>
         <div class="card-body">
-            @if(Session::get('success'))
-                <div class="alert alert-success">{{ Session::get('success') }}</div>
-            @endif
+           
             <table class="table table-striped" id="datatablesSimple">
                 <thead>
                     <tr>
@@ -29,7 +30,7 @@
                         <th>Grade</th>
                         <th>Tel Number</th> 
                         <th>Postal Address</th>  
-                        <th>Reason for the request</th>  
+                        <th width="15%">Reason for the request</th>  
                         <th>Request Status </th>                  
                         <th>Actions</th>    
                                       
@@ -53,7 +54,7 @@
                         @else
                           <td>Accepted</td>                  
                         @endif                  
-                        <td>
+                        <td  width="20%">
                             <a href="{{route('tab.editrequest',$d->id)}}" class="btn btn-primary btn-md">Edit</a>
                             <a href="{{route('tab.destroy',$d->id)}}" class="btn btn-danger btn-md">Delete</a>                          
                         </td>

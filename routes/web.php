@@ -9,6 +9,7 @@ use App\Http\Controllers\TabController;
 use App\Http\Controllers\TabRequestInfoController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\TablistController;
+use App\Http\Controllers\profileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,3 +56,8 @@ Route::resource('school',SchoolController::class);
 
 //tablist route
 Route::resource('tablist',TablistController::class);
+//---user profile settings---//
+Route::GET('/user/profileView', [profileController::class, 'view'])->name('user.profileView');
+Route::post('/user/update/{id}', [profileController::class, 'update'])->name('user.update');
+Route::GET('/user/changePassword', [profileController::class, 'changePassword'])->name('user.changePassword');
+Route::POST('/user/updatePassword', [profileController::class, 'updatePassword'])->name('user.updatePassword');
