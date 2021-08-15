@@ -10,8 +10,8 @@
         View Request
     </a-->
     <br>
-    <h2 class="text-center">We can give you a Tab...!!</h2>
-    <h5 class="text-center">Check your information again and confirm your request.</h5>
+    <h2 class="text-center">CHECK YOUR INFORMATION</h2>
+    <!--h5 class="text-center">Check your information again and confirm your request.</h5-->
         @if(Session::get('success'))
             <div class="alert alert-success mb-4 ml-5">{{ Session::get('success') }}</div>
         @endif

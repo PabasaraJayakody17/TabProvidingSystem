@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('tab.addrequest')}}">
+                        <a class="nav-link" href="{{route('tab.choosedistrict')}}">
                         <span class="sidebar-icon"><i class="fa fa-plus-circle"></i>
                         <span class="fadeInRight animated nav-link-name name-hide tax-show">Book Now</span>
                         </a>

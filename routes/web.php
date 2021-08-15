@@ -72,7 +72,7 @@ Route::get('/tab/updateTabStatus/{userId}', [TabController::class, 'updateTabSta
 //Route::get('/admin/schoolinfo',function(){
    // return view('/admin/schoolinfo');
 //});
-Route::resource('school',SchoolController::class);
+//Route::resource('school',SchoolController::class);
 Route::get('/tab/choosedistrict', [SchoolController::class, 'select_district'])->name('tab.choosedistrict');
 Route::get('/tab/choosezone', [SchoolController::class, 'select_zone'])->name('tab.choosezone');
 Route::get('/tab/chooseschool', [SchoolController::class, 'select_school'])->name('tab.chooseschool');
@@ -81,7 +81,7 @@ Route::get('/tab/chooseschool', [SchoolController::class, 'select_school'])->nam
 //Route::post('/admin/createschool', [SchoolController::class, 'store'])->name('admin.createschool');
 
 //tablist route
-Route::resource('tablist',TablistController::class);
+//Route::resource('tablist',TablistController::class);
 
 //---user profile settings---//
 Route::GET('/user/userDashboard', [profileController::class, 'viewDashboard'])->name('user.viewDashboard');
