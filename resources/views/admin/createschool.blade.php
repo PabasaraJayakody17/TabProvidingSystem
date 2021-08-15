@@ -8,9 +8,9 @@
         <h2 class="float-left">Add New School</h2>
     </div>
 
-    <div class="col-lg-12 float-left" style="margin-top:10px;margin-bottom: 10px;">
-        <a class="btn btn-primary" href="{{route('school.index')}}"> Back</a>
-    </div>
+    <!--div class="col-lg-12 float-left" style="margin-top:10px;margin-bottom: 10px;">
+        <a class="btn btn-primary" href="{{route('admin.schoolinfo')}}"> Back</a>
+    </div-->
 </div>
 
 @if ($errors->any())
@@ -23,9 +23,10 @@
     </ul>
 </div>
 @endif
-<form action="{{route('school.store')}}" method="POST">
+<br>
+<form action="{{route('admin.storeschool')}}" method="POST">
     @csrf
-    <div class="row">
+    
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>School ID:</strong>
@@ -34,7 +35,7 @@
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>School Type:</strong>
                 <select class="form-control" name="schoolType">
                 <option selected>Open this select menu</option>
@@ -46,7 +47,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>School Category:</strong>
             <select class="form-control" name="schoolcategory">
             <option selected>Open this select menu</option>
@@ -59,7 +60,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Province:</strong>
                 <select class="form-control" name="province">
                 <option selected>Open this select menu</option>
@@ -72,7 +73,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>District:</strong>
                 <select class="form-control" name="district">
                 <option selected>Open this select menu</option>
@@ -84,7 +85,7 @@
         </div> 
         
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Zonal Education Office:</strong>
                 <select class="form-control" name="zonalEducationOffice">
                 <option selected>Open this select menu</option>    
@@ -95,7 +96,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Education Division:</strong>
                 <select class="form-control" name="educationDivision">
                 <option selected>Open this select menu</option>
@@ -107,36 +108,36 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>School Name:</strong>
                 <input type="text" name="schoolName" class="form-control" placeholder="School Name">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Address:</strong>
                 <textarea class="form-control" style="height:150px" name="address" placeholder="Address"></textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Telephone No:</strong>
                 <input type="text" class="form-control" name="telNo" placeholder="Telephone No">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Email:</strong>
                 <input type="text" name="email" class="form-control" placeholder="Enter Email">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group row mt-3">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
         </div>
-    </div>
+    
 </form>
 </div>
 

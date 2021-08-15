@@ -15,17 +15,30 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+   /* public function handle(Request $request, Closure $next)
     {
         if(auth()->user()->IsAdmin()){
             return $next($request);
         }else{
-            return back()->with('error',"You don't have accedd to admin");;
+            return back()->with('error',"You don't have permission to admin");;
         }
-         return $next($request);
+         return route('login');
        /* if(auth()->user()->IsAdmin()){
             return $next($request);
         }
-       return redirect('home')->with('error',"You don't have accedd to admin");*/
+       return redirect('home')->with('error',"You don't have accedd to admin");
+    }*/
+    public function handle($request, Closure $next)
+    {
+        if (Auth::check()){
+
+            if (Auth::user()->IsAdmin()){
+
+                return $next($request);
+
+            }
+        }
+
+        return redirect('/');
     }
 }
