@@ -7,7 +7,7 @@
             <h1 class="pull-left">Tab List</h1>
         </div>
         <div class="col-lg-12 pull-left" style="margin-top:10px;margin-bottom: 10px;">
-            <a class="btn btn-success " href="{{route('tablist.create')}}"> Add Tab</a>
+            <a class="btn btn-success " href="{{route('admin.createtab')}}"> Add New Tab</a>
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -34,13 +34,12 @@
                 <td>{{$data->tabName}}</td>
                 <td>{{$data->description}}</td>
                 <td>
-                <form action="{{ route('tablist.destroy',$data->id) }}" method="POST">
-                <a class="btn btn-info" href="{{ route('tablist.show',$data->id)}}">Show</a>
-                <a class="btn btn-primary" href="{{ route('tablist.edit',$data->id) }}">Edit</a>
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+               
+                <a class="btn btn-info" href="{{ route('admin.showtab',$data->id)}}">Show</a>
+                <a class="btn btn-primary" href="{{ route('admin.edittab',$data->id) }}">Edit</a>
+                <a class="btn btn-danger" href="{{ route('admin.tabdestroy',$data->id) }}">Delete</a>
+               
+             
                 </td>
             </tr>
             @endforeach

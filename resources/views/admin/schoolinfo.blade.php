@@ -7,11 +7,11 @@
     <h1>School Information</h1>
 </div>
 <div class="form-group row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb" style="margin-top:10px;margin-bottom: 10px;">
         <div class="pull-right">
-            <a class="btn btn-success" href="{{route('school.create')}}">Add New School</a>
+            <a class="btn btn-success" href="{{route('admin.createschool')}}">Add New School</a>
         </div>
-        </div>
+    </div>
 </div>       
     @if($msg = Session::get('add'))
         <div class="alert alert-success">
@@ -50,12 +50,12 @@
               <td>{{$data->email}}</td>
               <td>
                     
-                    <a class="btn btn-primary" href="{{route('school.edit',$data->id)}}">Edit</a>
-                    <form action="{{route('school.destroy',$data->id)}}" method="POST">
-                        @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <a class="btn btn-primary mt-2" href="{{route('admin.editschool',$data->id)}}">Edit</a>
+                
+                    <a class="btn btn-danger mt-2" href="{{route('admin.schooldestroy',$data->id)}}">Delete</a>
+                
+                  
+                   
               </td>
 
             </tr>

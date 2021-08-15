@@ -6,9 +6,9 @@
         <div class="col-lg-12">
             <h2 class="pull-left">Edit Tab</h2>
         </div>
-        <div class="col-lg-12 pull-left" style="margin-top:10px;margin-bottom: 10px;">
-            <a class="btn btn-primary" href="{{route('tablist.index')}}"> Back</a>
-        </div>
+        <!--div class="col-lg-12 pull-left" style="margin-top:10px;margin-bottom: 10px;">
+            <a class="btn btn-primary" href="{{route('admin.tablist')}}"> Back</a>
+        </div-->
     </div>
 
     @if ($errors->any())
@@ -21,10 +21,10 @@
             </ul>
         </div>
     @endif
-
-    <form action="{{route('tablist.update',$data->id)}}" method="POST">
+    <br>
+    <form action="{{route('admin.updatetab',$data->id)}}" method="POST">
     @csrf
-    @method('PUT')
+   
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -32,9 +32,9 @@
                 <input type="text" name="serialNumber" class="form-control" value="{{$data->serialNumber}}" placeholder="Serial Number">
             </div>
         </div>
-        <fieldset class="form-group">
+        <fieldset class="form-group mt-2">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
             <strong>Tab Category:</strong>
             <div class="form-check form-check-inline" value="{{$data->category}}">
                 <input class="form-check-input" type="radio" name="category" id="student" value="student">
@@ -48,20 +48,20 @@
         </div>
         </fieldset>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Tab Name:</strong>
                 <input type="text" name="tabName" class="form-control" value="{{$data->tabName}}" placeholder="Tab Name">
             </div>
         </div>       
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Product Description:</strong>
                 <textarea class="form-control" style="height:150px" name="description" placeholder="Product Description">{{$data->description}}</textarea>
             </div>
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <div class="form-group">
+        <div class="form-group mt-3">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         </div>

@@ -56,7 +56,7 @@ class SchoolController extends Controller
 
         School::create($request->all());
         //return view('admin.schoolinfo');
-         return redirect()->route('school.index')->with('add','Record Added Successfully.');
+         return redirect()->route('admin.schoolinfo')->with('add','Record Added Successfully.');
         //return redirect()->route('admin.schoolinfo')->with('success','Created Successfully.');
 
     }
@@ -95,7 +95,7 @@ class SchoolController extends Controller
     public function update(Request $request, $id)
     {
         School::findOrFail($id)->update($request->all());
-        return redirect()->route('school.index')->with('add','Record Updated.');
+        return redirect()->route('admin.schoolinfo')->with('add','Record Updated.');
     }
 
     /**
@@ -107,6 +107,6 @@ class SchoolController extends Controller
     public function destroy($id)
     {
         School::findOrFail($id)->delete();
-        return redirect()->route('school.index')->with('add','Record Deleted.');
+        return redirect()->route('admin.schoolinfo')->with('add','Record Deleted.');
     }
 }

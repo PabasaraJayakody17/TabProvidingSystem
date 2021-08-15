@@ -52,7 +52,7 @@ class TabController extends Controller
         $request->validate([
             'student_or_teacher' => 'required',
             'grade' => 'required|min:1',
-            'telNo' => 'required|regex:/(01)[0-9]{9}/',
+            'telNo' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
             'postalAddress' => 'required|min:3',
             'reason' =>'required|min:3',
         ]);
@@ -97,7 +97,7 @@ class TabController extends Controller
        $request->validate([
         'student_or_teacher' => 'required',
         'grade' => 'required|min:1',
-        'telNo' => 'required|regex:/(01)[0-9]{9}/',
+        'telNo' => 'required|regex:/[0-9]/|not_regex:/[a-z]/|min:9',
         'postalAddress' => 'required|min:3',
         'reason' =>'required|min:3',
     ]);

@@ -57,12 +57,12 @@
         <div class="sidebar-menu small-side-bar flowHide">
             <nav class="">
                 <ul class="navbar-nav">
-                    <!--li class="nav-item">
-                        <a class="nav-link" href="cusDashboard.html">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.viewDashboard')}}">
                         <span class="sidebar-icon"><i class="fas fa-tachometer-alt"></i>
                         <span class="fadeInRight animated nav-link-name name-hide tax-show">Dashboard</span>
                         </a>
-                    </li-->
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('tab.addrequest')}}">
                         <span class="sidebar-icon"><i class="fa fa-plus-circle"></i>

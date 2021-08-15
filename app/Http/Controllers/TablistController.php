@@ -44,7 +44,7 @@ class TablistController extends Controller
             'description' => 'required',       
         ]);
         Tablist::create($request->all());
-        return redirect()->route('tablist.index')->with('success','Record Added Successfully.');
+        return redirect()->route('admin.tablist')->with('success','Record Added Successfully.');
     }
 
     /**
@@ -89,7 +89,7 @@ class TablistController extends Controller
             'description' => 'required',       
         ]);
         Tablist::findOrFail($id)->update($request->all());
-        return redirect()->route('tablist.index')->with('success','Record Updated Successfully.');
+        return redirect()->route('admin.tablist')->with('success','Record Updated Successfully.');
     }
 
     /**
@@ -101,6 +101,6 @@ class TablistController extends Controller
     public function destroy($id)
     {
         Tablist::findOrFail($id)->delete();
-        return redirect()->route('tablist.index')->with('success','Record Deleted.');
+        return redirect()->route('admin.tablist')->with('success','Record Deleted.');
     }
 }

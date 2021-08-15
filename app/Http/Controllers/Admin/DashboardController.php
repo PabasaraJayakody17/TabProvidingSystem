@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\School;
+use App\Models\Tablist;
 use App\Models\TabRequest;
 class DashboardController extends Controller
 {
@@ -14,7 +16,9 @@ class DashboardController extends Controller
 
        // $users = User::all();
        $users= TabRequest::all();
-        return view('admin.dashboard', compact('users'));
+       $schools= School::all();
+       $tabs=Tablist::all();
+        return view('admin.dashboard', compact('users','schools','tabs'));
     }
     public function delete($userId){
         User::findOrFail($userId)->delete($userId);
