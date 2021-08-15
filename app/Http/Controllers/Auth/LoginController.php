@@ -64,12 +64,12 @@ class LoginController extends Controller
             'password' => 'required|min:6|max:15',
         ]);
         if(auth()->attempt(array('email'=> $input['email'],'password' => $input['password']))){
-            
+
             if(auth()->user()->getAdmin()=='admin'){
             // return request()->route('admin.dashboard');
             return redirect('admin/dashboard');
             }else{
-                return redirect('/tab/addrequest');
+                return redirect('/tab/choosedistrict');
             }
         }else{
             return redirect()->route('login')

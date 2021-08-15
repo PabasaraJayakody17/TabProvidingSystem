@@ -29,7 +29,7 @@
             </div>
         </div>
 
-      
+
 
         <h3 class="text-white">Tab Providing System</h3>
         <!--a class="navbar-brand" href="#">
@@ -100,11 +100,11 @@
                     </li>
                 </ul>
             </nav>
-        </div>      
+        </div>
     </section>
 
     <div class="container">
-      
+
         @yield('content')
 
 

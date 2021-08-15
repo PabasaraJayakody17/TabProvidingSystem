@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\School;
+// use Livewire\component;
 
 class SchoolController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +42,7 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-    
+
        $request->validate([
             'schoolId' => 'required',
             'schoolType' => 'required',
@@ -67,9 +70,9 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**
@@ -108,5 +111,35 @@ class SchoolController extends Controller
     {
         School::findOrFail($id)->delete();
         return redirect()->route('school.index')->with('add','Record Deleted.');
+    }
+
+    public function select_district()
+    {
+
+        // $school = School::all();
+        // $school = School::distinct('district')->get();
+        $school = School::all()->unique('district');
+        error_log($school);
+
+        return view('tab.choosedistrict', compact('school'));
+    }
+
+    public function select_zone(Request $request)
+    {
+        // $value = $request->get('district');
+        $value = $request->district;
+        $school = School::where('district',$value)->get()->unique('zonalEducationOffice');
+        error_log($school);
+        // $school = School::table('zonalEducationOffice')->WHERE('district',$value)->get();
+        return view('tab.choosezone', compact('school'));
+    }
+
+    public function select_school(Request $request)
+    {
+        $value = $request->zone;
+        $school = School::where('zonalEducationOffice',$value)->get()->unique('schoolName');
+
+
+        return view('tab.chooseschool', compact('school'));
     }
 }

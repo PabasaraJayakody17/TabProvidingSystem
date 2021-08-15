@@ -10,6 +10,7 @@ use App\Http\Controllers\TabRequestInfoController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\TablistController;
 use App\Http\Controllers\profileController;
+use App\Http\Livewire\Selectschool;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +51,9 @@ Route::get('/tab/updateTabStatus/{userId}', [TabController::class, 'updateTabSta
    // return view('/admin/schoolinfo');
 //});
 Route::resource('school',SchoolController::class);
+Route::get('/tab/choosedistrict', [SchoolController::class, 'select_district'])->name('tab.choosedistrict');
+Route::get('/tab/choosezone', [SchoolController::class, 'select_zone'])->name('tab.choosezone');
+Route::get('/tab/chooseschool', [SchoolController::class, 'select_school'])->name('tab.chooseschool');
 //Route::get('/admin/createschool', [SchoolController::class, 'create'])->name('admin.createschool');
 //Route::get('/admin/schoolinfo', [SchoolController::class, 'index'])->name('admin.schoolinfo');
 //Route::post('/admin/createschool', [SchoolController::class, 'store'])->name('admin.createschool');
