@@ -15,13 +15,16 @@ class CreateTabRequestsTable extends Migration
     {
         Schema::create('tab_requests', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('userId')->unsigned();
-            $table->string('student_or_teacher');
-            $table->integer('grade');
-            $table->integer('telNo');
+            $table->bigInteger('userId')->unsigned()->nullable();
+            $table->string('district')->nullable();
+            $table->string('zonalEducationOffice')->nullable();
+            $table->string('schoolName')->nullable();
+            $table->string('student_or_teacher')->nullable();
+            $table->integer('grade')->nullable();
+            $table->integer('telNo')->nullable();
           //  $table->string('emailAddress');
-            $table->string('postalAddress');
-            $table->string('reason');
+            $table->string('postalAddress')->nullable();
+            $table->string('reason')->nullable();
             $table->timestamps();
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
           

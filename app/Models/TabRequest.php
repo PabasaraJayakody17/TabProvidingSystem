@@ -11,14 +11,14 @@ class TabRequest extends Model
 
     protected $fillable = [
         'userId',
+        'district',
+        'zonalEducationOffice',
+        'schoolName',
         'student_or_teacher',
         'grade',
         'telNo',
         'postalAddress',
-        'reason',
-        'district',
-        'zonalEducationOffice',
-        'schoolName'
+        'reason'
 
     ];
 

@@ -15,19 +15,7 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-   /* public function handle(Request $request, Closure $next)
-    {
-        if(auth()->user()->IsAdmin()){
-            return $next($request);
-        }else{
-            return back()->with('error',"You don't have permission to admin");;
-        }
-         return route('login');
-       /* if(auth()->user()->IsAdmin()){
-            return $next($request);
-        }
-       return redirect('home')->with('error',"You don't have accedd to admin");
-    }*/
+
     public function handle($request, Closure $next)
     {
         if (Auth::check()){
@@ -39,6 +27,6 @@ class IsAdmin
             }
         }
 
-        return redirect('/');
+        return redirect()->back()->with('error','You are not having administrative Permissions');;
     }
 }
