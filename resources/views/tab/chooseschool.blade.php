@@ -13,15 +13,15 @@
             <div class="card">
                  <div class="card-header bg-primary text-white">{{ __('School') }}</div>
                  <div class="card-body">
-                    <form method="GET" action="{{route('tab.addrequest')}}" >
+                    <form method="POST" action="{{route('tab.choosedistrict')}}" >
                         @csrf
 
                         <div class="form-group row">
                         <!-- <strong>School:</strong> -->
-                        <select name="school" class="form-control custom-select">
+                        <select name="schoolName" class="form-control custom-select">
                             <option value="">Select School</option>
                             @foreach($school as $schl)
-                                <option value="$schl->schoolName">{{ $schl->schoolName }}</option>
+                                <option value="{{ $schl->schoolName }}" selected>{{ $schl->schoolName }}</option>
                             @endforeach
                         </select>
                         </div>

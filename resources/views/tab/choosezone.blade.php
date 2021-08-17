@@ -14,12 +14,12 @@
             <div class="card-header bg-primary text-white">{{ __('Zone') }}</div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{route('tab.chooseschool')}}" >
+                    <form method="POST" action="{{route('tab.selectschool')}}" >
                         @csrf
 
                         <div class="form-group row">
                         <!-- <strong>Zone:</strong> -->
-                        <select name="zone" class="form-control custom-select">
+                        <select name="zonalEducationOffice" class="form-control custom-select">
                             <option value="">Select Zone</option>
                             @foreach($school as $schl)
                                 <option value="{{ $schl->zonalEducationOffice }}"  selected>{{ $schl->zonalEducationOffice}}</option>

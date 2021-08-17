@@ -14,7 +14,7 @@
             <div class="card-header bg-primary text-white">{{ __('District') }}</div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{route('tab.choosezone')}}" >
+                    <form method="POST" action="{{route('tab.choosezone')}}" >
                         @csrf
 
                         <div class="form-group row">
