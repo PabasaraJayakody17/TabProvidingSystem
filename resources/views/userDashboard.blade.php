@@ -9,7 +9,7 @@
             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
                 <div class="card-body text-center">
                     <i class="fas fa-folder fa-5x"></i>
-                    <h4 class="text-white"><a class="text-white" href="{{route('tab.addrequest')}}">BOOKING NOW</a></h4>
+                    <h4 class="text-white"><a class="text-white" href="{{route('tab.choosedistrict')}}">BOOKING NOW</a></h4>
                 </div>
               </div>
             

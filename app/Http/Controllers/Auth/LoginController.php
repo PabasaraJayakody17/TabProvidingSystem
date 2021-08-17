@@ -70,7 +70,7 @@ class LoginController extends Controller
             return redirect('admin/dashboard');
             }else{
 
-                return redirect('/tab/choosedistrict');
+                return redirect('/user/userDashboard');
 
             }
         }else{
