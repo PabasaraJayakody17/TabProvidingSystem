@@ -61,3 +61,9 @@ Route::GET('/user/profileView', [profileController::class, 'view'])->name('user.
 Route::post('/user/update/{id}', [profileController::class, 'update'])->name('user.update');
 Route::GET('/user/changePassword', [profileController::class, 'changePassword'])->name('user.changePassword');
 Route::POST('/user/updatePassword', [profileController::class, 'updatePassword'])->name('user.updatePassword');
+
+
+//tab details 
+Route::get('/tab/tabdetail',function(){
+     return view('/tab/tabdetails');
+ });
