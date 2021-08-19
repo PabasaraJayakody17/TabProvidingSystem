@@ -6,9 +6,9 @@
         <div class="col-lg-12">
             <h1 class="pull-left">Add New Tab</h1>
         </div>
-        <div class="col-lg-12 pull-left" style="margin-top:10px;margin-bottom: 10px;">
-            <a class="btn btn-primary " href="{{route('tablist.index')}}"> Back</a>
-        </div>
+        <!--div class="col-lg-12 pull-left" style="margin-top:10px;margin-bottom: 10px;">
+            <a class="btn btn-primary " href="{{route('admin.tablist')}}"> Back</a>
+        </div-->
     </div>
     
     @if ($errors->any())
@@ -21,8 +21,8 @@
     </ul>
 </div>
 @endif
-
-<form action="{{route('tablist.store')}}" method="POST">
+<br>
+<form action="{{route('admin.storetab')}}" method="POST">
     @csrf
 
     <div class="row">
@@ -32,9 +32,9 @@
                 <input type="text" name="serialNumber" class="form-control" placeholder="Serial Number">
             </div>
         </div>
-        <fieldset class="form-group">
+        <fieldset class="form-group mt-2">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
             <strong>Tab Category:</strong>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="category" id="student" value="student">
@@ -48,21 +48,21 @@
         </div>
         </fieldset>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Tab Name:</strong>
                 <input type="text" name="tabName" class="form-control" placeholder="Tab Name">
             </div>
         </div>       
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <strong>Product Description:</strong>
                 <textarea class="form-control" style="height:150px" name="description" placeholder="Product Description"></textarea>
             </div>
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </div>
         </div>
     </div>

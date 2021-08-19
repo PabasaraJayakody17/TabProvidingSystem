@@ -10,6 +10,7 @@ use App\Http\Controllers\TabRequestInfoController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\TablistController;
 use App\Http\Controllers\profileController;
+use App\Http\Livewire\Selectschool;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,27 @@ Route::get('/admin/{userId}/updateTabStatus',[DashboardController::class,'update
 Route::get('/admin/{userId}/updateTabStatusBack',[DashboardController::class,'updateTabStatusBack'])->middleware('admin')->name('user.updateTabStatusBack');
 Route::get('/admin/{userId}/updateTabStatusToZero',[DashboardController::class,'updateTabStatusToZero'])->middleware('admin')->name('user.updateTabStatusToZero');
 
+//School routes
+//Route::resource('school',SchoolController::class);
+Route::get('/admin/createschool', [SchoolController::class, 'create'])->middleware('admin')->name('admin.createschool');
+Route::get('/admin/schoolinfo', [SchoolController::class, 'index'])->middleware('admin')->name('admin.schoolinfo');
+Route::post('/admin/storeschool', [SchoolController::class, 'store'])->middleware('admin')->name('admin.storeschool');
+Route::get('/admin/editschool/{id}', [SchoolController::class, 'edit'])->middleware('admin')->name('admin.editschool');
+Route::post('/admin/updateschool/{id}', [SchoolController::class, 'update'])->middleware('admin')->name('admin.updateschool');
+Route::get('/admin/schooldestroy/{id}', [SchoolController::class, 'destroy'])->middleware('admin')->name('admin.schooldestroy');
+
+//tablist route
+//Route::resource('tablist',TablistController::class);
+Route::get('/admin/tablist', [TablistController::class, 'index'])->middleware('admin')->name('admin.tablist');
+Route::get('/admin/createtab', [TablistController::class, 'create'])->middleware('admin')->name('admin.createtab');
+Route::post('/admin/storetab', [TablistController::class, 'store'])->middleware('admin')->name('admin.storetab');
+Route::get('/admin/edittab/{id}', [TablistController::class, 'edit'])->middleware('admin')->name('admin.edittab');
+Route::post('/admin/updatetab/{id}', [TablistController::class, 'update'])->middleware('admin')->name('admin.updatetab');
+Route::get('/admin/showtab/{id}', [TablistController::class, 'show'])->middleware('admin')->name('admin.showtab');
+Route::get('/admin/tabdestroy/{id}', [TablistController::class, 'destroy'])->middleware('admin')->name('admin.tabdestroy');
+
+
+Route::group(['middleware' => ['auth']], function() {
 //---TabRequest routes---//
 Route::get('/tab/addrequest', [TabController::class, 'create'])->name('tab.addrequest');
 Route::post('/tab/addrequest', [TabController::class, 'store'])->name('tab.addrequest');
@@ -45,18 +67,24 @@ Route::get('/tab/editrequest/{id}', [TabController::class, 'edit'])->name('tab.e
 Route::post('/tab/update/{id}', [TabController::class, 'update'])->name('tab.update');
 Route::get('/tab/updateTabStatus/{userId}', [TabController::class, 'updateTabStatus'])->name('tab.updateTabStatus');
 
+
 //School routes
 //Route::get('/admin/schoolinfo',function(){
    // return view('/admin/schoolinfo');
 //});
-Route::resource('school',SchoolController::class);
+//Route::resource('school',SchoolController::class);
+Route::get('/tab/choosedistrict', [SchoolController::class, 'select_district'])->name('tab.choosedistrict');
+Route::get('/tab/choosezone', [SchoolController::class, 'select_zone'])->name('tab.choosezone');
+Route::get('/tab/chooseschool', [SchoolController::class, 'select_school'])->name('tab.chooseschool');
 //Route::get('/admin/createschool', [SchoolController::class, 'create'])->name('admin.createschool');
 //Route::get('/admin/schoolinfo', [SchoolController::class, 'index'])->name('admin.schoolinfo');
 //Route::post('/admin/createschool', [SchoolController::class, 'store'])->name('admin.createschool');
 
 //tablist route
-Route::resource('tablist',TablistController::class);
+//Route::resource('tablist',TablistController::class);
+
 //---user profile settings---//
+Route::GET('/user/userDashboard', [profileController::class, 'viewDashboard'])->name('user.viewDashboard');
 Route::GET('/user/profileView', [profileController::class, 'view'])->name('user.profileView');
 Route::post('/user/update/{id}', [profileController::class, 'update'])->name('user.update');
 Route::GET('/user/changePassword', [profileController::class, 'changePassword'])->name('user.changePassword');
@@ -67,3 +95,6 @@ Route::POST('/user/updatePassword', [profileController::class, 'updatePassword']
 Route::get('/tab/tabdetail',function(){
      return view('/tab/tabdetails');
  });
+});
+
+

@@ -31,6 +31,7 @@ class TabController extends Controller
         //return view('tab.addrequest');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -52,19 +53,29 @@ class TabController extends Controller
         $request->validate([
             'student_or_teacher' => 'required',
             'grade' => 'required|min:1',
-            'telNo' => 'required|regex:/(01)[0-9]{9}/',
+            'telNo' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
             'postalAddress' => 'required|min:3',
             'reason' =>'required|min:3',
         ]);
 
-        TabRequest::create([
-             'userId' => auth()->user()->id,
-             'student_or_teacher' => $request->get('student_or_teacher'),
-             'grade' => $request->get('grade'),
-             'telNo' => $request->get('telNo'),
-             'postalAddress' => $request->get('postalAddress'),
-             'reason' => $request->get('reason')
-        ]);
+        $data = TabRequest::orderBy('id', 'DESC')->pluck('id');
+        error_log($data);
+        $data = TabRequest::where('id',$data)->update([
+                 'userId' => auth()->user()->id,
+                 'student_or_teacher' => $request->get('student_or_teacher'),
+                 'grade' => $request->get('grade'),
+                 'telNo' => $request->get('telNo'),
+                 'postalAddress' => $request->get('postalAddress'),
+                 'reason' => $request->get('reason')
+            ]);
+        // TabRequest::create([
+        //      'userId' => auth()->user()->id,
+        //      'student_or_teacher' => $request->get('student_or_teacher'),
+        //      'grade' => $request->get('grade'),
+        //      'telNo' => $request->get('telNo'),
+        //      'postalAddress' => $request->get('postalAddress'),
+        //      'reason' => $request->get('reason')
+        // ]);
         return redirect()->route('tab.viewrequest')->with('success','Data have been successfully inserted');
     }
 
@@ -77,7 +88,7 @@ class TabController extends Controller
 
     public function edit($id)
     {
-       
+
         $data = TabRequest::findOrFail($id);
         return view('tab.editrequest', compact('data'));
     }
@@ -97,12 +108,12 @@ class TabController extends Controller
        $request->validate([
         'student_or_teacher' => 'required',
         'grade' => 'required|min:1',
-        'telNo' => 'required|regex:/(01)[0-9]{9}/',
+        'telNo' => 'required|regex:/[0-9]/|not_regex:/[a-z]/|min:9',
         'postalAddress' => 'required|min:3',
         'reason' =>'required|min:3',
     ]);
         TabRequest::findOrFail($id)->update($request->all());
-   
+
        return redirect()->route('tab.viewrequest')->with('success','Data have been successfully inserted');
     }
 
@@ -114,11 +125,11 @@ class TabController extends Controller
         return redirect()->route('tab.viewrequest')->with('success','Data have been successfully deleted');
     }
     public function updateTabStatus($userId){
-    
+
         User::whereId($userId)->update([
            'tab_status' => 1
        ]);
            return redirect()->route('tab.viewrequest')->with('success','Your tab request successfully added');
-          
+
     }
 }

@@ -9,8 +9,8 @@
         View Request
     </a-->
    <br>
-    <h2 class="text-center">Change Password </h2>
-    <br>
+    <h2 class="text-center">CHANGE PASSWORD </h2>
+    <hr class="mb-4 ml-5 mt-3">
     
     @if(Session::get('success'))
     <div class="alert alert-success">{{ Session::get('success') }}</div>

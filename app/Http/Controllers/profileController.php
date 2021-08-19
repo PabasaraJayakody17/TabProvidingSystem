@@ -9,11 +9,11 @@ use Hash;
 class profileController extends Controller
 {
     //
+    public function viewDashboard(){
+        return view('userDashboard');
+    }
     public function view()
     {
-       // $data = User::where('userId',Auth::user()->id)->get();
-       // $data = TabRequest::all();
-       // return view('user.profileView', compact('data'));
        return view('profile');
     }
     public function update($id,Request $request)

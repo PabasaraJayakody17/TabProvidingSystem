@@ -55,6 +55,12 @@
                                                              <!--carousel slide<-->
 
 <div class="container" id="home">
+
+  @if(Session::get('success'))
+         <div class="alert alert-success">{{ Session::get('success') }}</div>
+ @elseif(Session::get('error'))
+         <div class="alert alert-danger">{{ Session::get('error') }}</div>
+  @endif
 <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>

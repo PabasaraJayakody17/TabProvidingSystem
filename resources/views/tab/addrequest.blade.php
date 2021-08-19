@@ -9,11 +9,15 @@
         View Request
     </a-->
     <br>
-    <h2 class="text-center">We will provide you a tab.</h2>
-    <h5 class="text-center">Enter your information... Request for a tab...</h5>
+  
+    <h2 class="text-center">ENTER YOUR INFORMATION</h2>
+    <hr class="mb-4 ml-5 mt-3">
+    <!--h5 class="text-center">... Request for a tab...</h5-->
 
     @if(Session::get('success'))
-      <div class="alert alert-success">{{ Session::get('success') }}</div>
+           <div class="alert alert-success">{{ Session::get('success') }}</div>
+   @elseif(Session::get('error'))
+           <div class="alert alert-danger">{{ Session::get('error') }}</div>
     @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
