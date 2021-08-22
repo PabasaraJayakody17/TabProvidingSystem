@@ -63,6 +63,13 @@
                         <span class="fadeInRight animated nav-link-name name-hide tax-show">Dashboard</span>
                         </a>
                     </li>
+                 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('tab.tablist')}}">
+                        <span class="sidebar-icon">   <i class="fas fa-tablet-alt"></i>
+                        <span class="fadeInRight animated nav-link-name name-hide tax-show">Tab Information</span>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('tab.choosedistrict')}}">
                         <span class="sidebar-icon"><i class="fa fa-plus-circle"></i>

@@ -12,7 +12,7 @@ class Tablist extends Model
         'serialNumber',
         'category',
         'tabName',
-        'description'
-      
+        'description',
+        'image'
     ];
 }

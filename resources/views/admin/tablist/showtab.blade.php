@@ -36,6 +36,13 @@
                 {{$data->description}}
             </div>
         </div>
+        <div class="col-xs-8 col-sm-8 col-md-8">
+            <div class="form-group mt-2">
+                <strong>Image:</strong><br>
+                <img src="/image/{{ $data->image }}" width="300px">
+            </div>
+
+        </div>
     </div>
     
 @endsection    

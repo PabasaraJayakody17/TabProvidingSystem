@@ -24,6 +24,7 @@
                 <th>Category</th>
                 <th>Tab Name</th>
                 <th>Product Description</th>
+                <th>Image</th>
                 <th width="280px">More</th>
             </tr>
             @foreach ($tablist as $data)
@@ -33,6 +34,7 @@
                 <td>{{$data->category}}</td>
                 <td>{{$data->tabName}}</td>
                 <td>{{$data->description}}</td>
+                <td><img src="/image/{{ $data->image }}" width="100px"></td>
                 <td>
                
                 <a class="btn btn-info" href="{{ route('admin.showtab',$data->id)}}">Show</a>

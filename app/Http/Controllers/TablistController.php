@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Tablist;
-
+use File;
 class TablistController extends Controller
 {
     /**
@@ -17,6 +17,11 @@ class TablistController extends Controller
     {
         $tablist = Tablist::get();
         return view('admin/tablist.tabindex')->with(compact('tablist'));;
+    }
+    public function UserIndex()
+    {
+        $tablist = Tablist::get();
+        return view('tab.tabdetails')->with(compact('tablist'));;
     }
 
     /**
@@ -41,9 +46,19 @@ class TablistController extends Controller
             'serialNumber' => 'required',
             'category' => 'required',
             'tabName' => 'required',
-            'description' => 'required',       
+            'description' => 'required',     
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  
         ]);
-        Tablist::create($request->all());
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+
+        }
+        Tablist::create($input);
         return redirect()->route('admin.tablist')->with('success','Record Added Successfully.');
     }
 
@@ -86,9 +101,20 @@ class TablistController extends Controller
             'serialNumber' => 'required',
             'category' => 'required',
             'tabName' => 'required',
-            'description' => 'required',       
+            'description' => 'required', 
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',    
         ]);
-        Tablist::findOrFail($id)->update($request->all());
+        $input = $request->all();
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        Tablist::findOrFail($id)->update($input);
         return redirect()->route('admin.tablist')->with('success','Record Updated Successfully.');
     }
 

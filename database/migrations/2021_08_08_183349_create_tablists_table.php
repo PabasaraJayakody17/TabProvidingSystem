@@ -19,6 +19,7 @@ class CreateTablistsTable extends Migration
             $table->string('category');
             $table->string('tabName');
             $table->string('description');
+            $table->string('image')->nullable();;
             $table->timestamps();
         });
     }

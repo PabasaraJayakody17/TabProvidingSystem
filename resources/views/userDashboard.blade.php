@@ -15,6 +15,15 @@
             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
                 <div class="card-body text-center">
                     <i class="fas fa-folder fa-5x"></i>
+                    <h4 class="text-white"><a class="text-white" href="{{route('tab.tablist')}}">TAB INFORMATION</a></h4>
+                </div>
+              </div>
+            
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-body text-center">
+                    <i class="fas fa-folder fa-5x"></i>
                     <h4 class="text-white"><a class="text-white" href="{{route('tab.choosedistrict')}}">BOOKING NOW</a></h4>
                 </div>
               </div>
