@@ -22,7 +22,7 @@
 
                     <form method="POST" action="{{route('tab.choosezone')}}" >
                         @csrf
-
+                      
                         <div class="form-group row">
                         <!-- <strong>District:</strong> -->
                         <select name="district" class="form-control custom-select">
