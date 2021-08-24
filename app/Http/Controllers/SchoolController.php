@@ -158,7 +158,7 @@ class SchoolController extends Controller
         $data = TabRequest::where('id',$data)->update($request->except(['_token']));
 
 
-        return redirect()->route('tab.addrequest')->with('success','Data have been successfully inserted');
+        return redirect()->route('tab.addrequest');
     }
 
 
