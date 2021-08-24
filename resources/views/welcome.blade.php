@@ -100,15 +100,16 @@
 
 <div class="jumbotron" id="about">
   <h3 class="text-center text-uppercase">About Us</h3>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p class="lead">The COVID-19 pandemic has severely impacted the education ecosystem in Sri Lanka. Over the last year or so students have been confined to their homes due to lockdowns and travel restrictions. The normal pattern of learning has been tremendously impacted due to COVID-19.</p>
   <hr class="my-4">
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, voluptate, inventore tempora repellendus harum atque tempore nesciunt porro optio dolorum minima enim nisi iste molestias similique blanditiis quis aperiam. Itaque!.</p>
-
+  <p>Some schools and students with better infrastructure facilities have been able to face this situation but the less-privileged schools and students with limited infrastructure are faced many problems with online classes. And also, parents have to go with this learning process especially at a primary and secondary education level.</p>
+  <p>So, Ministry of Education is decided to provide tablets to students as well as teachers to help their online studies. We provide limited number of tablets for a school and students and teachers can request for a tablet and get it from their school.</p>
 </div>
+
 <section id="contact">
   <div class="container">
       <h3 class="text-center text-uppercase">contact us</h3>
-      <p class="text-center w-75 m-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum purus at sem ornare sodales. Morbi leo nulla, pharetra vel felis nec, ullamcorper condimentum quam.</p>
+      <p class="text-center w-75 m-auto">If there is any issue with requesting a tablet, contact us and get an answer for your problem.</p>
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 my-5">
           <div class="card border-0">
